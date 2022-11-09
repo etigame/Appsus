@@ -4,9 +4,8 @@ export default {
   props: ['keeps'],
   template: ` <section className="keep-list">
               <ul>
-                <li v-for="keep in keeps">
-                  <component :is= "keep.type" :info="keep.info"></component>
-                
+                <li v-for="keep in keeps" :key="keep.id" >
+                <keep-preview :keep="keep"/>
                 </li>
               </ul>
     </section>

@@ -1,10 +1,7 @@
-export default cmps
-
-const cmps = {
-  'keep-txt': {
-    props: ['info'],
-    template: `<div class="keep-txt-container">
-                <p>{{info.txt}}</p>
-            </div>`,
-  },
+export default {
+  props: ['keep'],
+  template: ` <section className="keep-preview">
+      <h1>{{ keep.id }}</h1>
+    </section>
+    `,
 }
