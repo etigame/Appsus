@@ -1,0 +1,22 @@
+.keep-list {
+  column-count: 5;
+  column-gap: 1.5rem;
+}
+
+.keep-list > * {
+  border: 1px solid black;
+  break-inside: avoid;
+  margin-block-end: 1rem;
+  width: 100%;
+}
+
+.keep-txt-container {
+  background-color: pink;
+  padding: 10px;
+}
+.keep-txt-container p {
+}
+
+.keep-img-container {
+  background-color: aqua;
+}

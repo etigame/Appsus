@@ -36,7 +36,7 @@
     "type": "keep-img",
     "info": {
       "url": "https://pbs.twimg.com/media/FevEd62XEAMVxka?format=jpg&name=small",
-      "title": "Generative Art"
+      "title": "Generative Art 1"
     },
     "style": {
       "backgroundColor": "#00d"
@@ -47,23 +47,13 @@
     "type": "keep-img",
     "info": {
       "url": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b9b06cf2-4e64-4c32-a687-17d0e767f7c5/dblsgy4-6951a792-0b6a-4f13-8c7c-028c4e7d4c35.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2I5YjA2Y2YyLTRlNjQtNGMzMi1hNjg3LTE3ZDBlNzY3ZjdjNVwvZGJsc2d5NC02OTUxYTc5Mi0wYjZhLTRmMTMtOGM3Yy0wMjhjNGU3ZDRjMzUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.M8te9rikXtK5GsqYPxEx1ymBBhafUfNDV_mDwCND9nU",
-      "title": "Generative Art 1"
-    },
-    "style": {
-      "backgroundColor": "#00d"
-    }
-  },
-  {
-    "id": "k107",
-    "type": "keep-img",
-    "info": {
-      "url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.deviantart.com%2Fgenerative-azher%2Fart%2FRecursive-Rect-2-701728204&psig=AOvVaw2gPMgiw4rKXbQqlgC7PQ6N&ust=1668088785065000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCPDWkI6hofsCFQAAAAAdAAAAABAE",
       "title": "Generative Art 2"
     },
     "style": {
       "backgroundColor": "#00d"
     }
   },
+
   {
     "id": "k108",
     "type": "keep-img",

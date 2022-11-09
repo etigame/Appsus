@@ -1,16 +1,16 @@
-import keepPreview from './keep-preview.cmp.js'
+import keepTxt from './keep-txt.cmp.js'
+import keepImg from './keep-img.cmp.js'
 
 export default {
   props: ['keeps'],
-  template: ` <section className="keep-list">
-              <ul>
-                <li v-for="keep in keeps" :key="keep.id" >
-                <keep-preview :keep="keep"/>
-                </li>
-              </ul>
-    </section>
+  template: ` <section  className="keep-list" >
+                <div v-for="keep in keeps" :key="keep.id" >
+                <component :is= "keep.type" :info="keep.info"></component>
+            </div>      
+        </section>
     `,
   components: {
-    keepPreview,
+    keepTxt,
+    keepImg,
   },
 }
