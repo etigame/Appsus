@@ -1,5 +1,6 @@
 import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
+import gKeeps from '../data/keeps.json' assert { type: 'json' }
 
 const KEEP_KEY = 'keepDB'
 _createKeeps()
@@ -18,7 +19,7 @@ function query() {
 }
 
 function get(keepId) {
-  return storageService.get(keep_KEY, keepId)
+  return storageService.get(KEEP_KEY, keepId)
 }
 
 function remove(keepId) {
@@ -48,11 +49,7 @@ function getNextKeepId(keepId) {
 function _createKeeps() {
   let keeps = utilService.loadFromStorage(KEEP_KEY)
   if (!keeps || !keeps.length) {
-    keeps = []
-    // keeps.push(_createkeep('Audu Mea', 300))
-    // cars.push(_createCar('Fiak Ibasa', 120))
-    // cars.push(_createCar('Subali Pesha', 100))
-    // cars.push(_createCar('Mitsu Bashi', 150))
+    keeps = gKeeps
 
     utilService.saveToStorage(KEEP_KEY, keeps)
   }
