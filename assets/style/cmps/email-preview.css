@@ -1,3 +1,7 @@
+.email-preview {
+    cursor: pointer;
+}
+
 .sent-time {
     font-size: 0.75rem;
 }
@@ -5,4 +9,9 @@
 .unread > * {
     font-weight: 700;
     letter-spacing: 0.8px;
+    background-color: var(--clr2);
+}
+
+.read {
+    background-color: var(--clr4);
 }

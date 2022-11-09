@@ -33,11 +33,11 @@ const routerOptions = {
 			component: emailApp,
 			children: [
 				{
-					path: ':id',
+					path: '/email/:id',
 					component: emailDetails
 				},
 				{
-					path: 'compose',
+					path: '/email/compose',
 					component: emailCompose
 				},
 			]

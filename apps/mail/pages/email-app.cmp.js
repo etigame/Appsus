@@ -7,19 +7,31 @@ import {
 import emailFilter from '../cmps/email-filter.cmp.js'
 import emailList from '../cmps/email-list.cmp.js'
 import emailFolderList from '../cmps/email-folder-list.cmp.js'
+import emailDetails from './email-details.cmp.js'
+import emailCompose from './email-compose.cmp.js'
 
 export default {
   template: `
     <section class="email-app">
         <email-filter @filter="setFilter"/>
-        <router-link to="/email/compose">Compose</router-link>
+        <router-link to="/email/compose">
+            <email-compose />
+        </router-link>
         <email-folder-list />
-        <email-list @remove="removeEmail" :emails="emails"/>
+        <email-list 
+            @selected="selectEmail" 
+            @remove="removeEmail" 
+            :emails="emails"/>
+        <email-details 
+            :email="selectedEmail"
+            @close="selectedEmail = null" 
+            v-if="selectedEmail" />
     </section>
     `,
   data() {
     return {
       emails: [],
+      selectedEmail: null,
     //   filterBy: {
     //     vendor: '',
     //     minSpeed: 0,
@@ -31,7 +43,10 @@ export default {
       this.emails = emails
     })
   },
-  // methods: {
+  methods: {
+    selectEmail(emailId) {
+        emailService.get(emailId).then((email) => (this.selectedEmail = email))
+      },
   //     removeCar(carId){
   //         emailService.remove(carId)
   //             .then(() => {
@@ -48,7 +63,7 @@ export default {
   //     setFilter(filterBy){
   //         this.filterBy = filterBy
   //     }
-  // },
+  },
   // computed: {
   //     carsToShow(){
   //         const regex = new RegExp(this.filterBy.vendor, 'i')
@@ -61,6 +76,8 @@ export default {
   components: {
       emailFilter,
       emailList,
-      emailFolderList
+      emailFolderList,
+      emailDetails,
+      emailCompose
   }
 }
