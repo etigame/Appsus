@@ -9,6 +9,8 @@ html {
 body {
   margin: 0;
   color: var(--font-clr);
+  font-family: Google-sans-regular, sans-serif;
+  font-size: .875rem;
 }
 
 h1,
@@ -18,7 +20,6 @@ h4,
 h5,
 h6 {
   margin: 0 0 1em;
-  font-family: 'Edu VIC WA NT Beginner', cursive;
 }
 
 p {
