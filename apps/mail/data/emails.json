@@ -1,6 +1,7 @@
 [
   {
     "id": "e101",
+    "tab": "inbox",
     "subject": "[Slack] New message in group conversation with Roni Siles and Guy Kadosh - Coding Academy",
     "body": "You have a new mention in Coding Academy - Sep22 (fullstackboot-keg9179.slack.com) From your conversation with Roni Siles and Guy Kadosh - Coding Academy",
     "isRead": false,
@@ -10,6 +11,7 @@
   },
   {
     "id": "e102",
+    "tab": "inbox",
     "subject": "Or wants to join your network",
     "body": "Here's a summary of your latest invitations to connect.",
     "isRead": false,
@@ -19,6 +21,7 @@
   },
   {
     "id": "e103",
+    "tab": "inbox",
     "subject": "rorokoo invited you to rorokoo/sprint3",
     "body": "@rorokoo has invited you to collaborate on the rorokoo/sprint3 repository. You can accept or decline this invitation. You can also head over to https://github.com/rorokoo/sprint3 to check out the repository or visit @rorokoo to learn a bit more about them. This invitation will expire in 7 days.",
     "isRead": true,
@@ -28,6 +31,7 @@
   },
   {
     "id": "e104",
+    "tab": "inbox",
     "subject": "[Slack] New messages from Roni Siles and Guy Kadosh - Coding Academy in Coding Academy - Sep22",
     "body": "You have a new mention in Coding Academy - Sep22 (fullstackboot-keg9179.slack.com) From your conversation with Guy Kadosh - Coding Academy and Roni Siles",
     "isRead": true,
@@ -37,6 +41,7 @@
   },
   {
     "id": "e105",
+    "tab": "starred",
     "subject": "Join 8200 ALUMNI CONSULTANTS",
     "body": "8200 Alumni Consultants is a company of top-notch technology consultants from Israel, all are alumni of the prestigious military cybersecurity unit, 8200 (the Israeli NSA). We serve as a technological branch of leading organizations worldwide, establishing and managing R&D centers.",
     "isRead": false,
@@ -46,6 +51,7 @@
   },
   {
     "id": "e106",
+    "tab": "inbox",
     "subject": "[GitHub] Please reset your password",
     "body": "Reset your GitHub password - We heard that you lost your GitHub password. Sorry about that! But dont worry! You can use the following button to reset your password: Reset your GitHub password",
     "isRead": true,
@@ -55,6 +61,7 @@
   },
   {
     "id": "e107",
+    "tab": "starred",
     "subject": "Reserve your spot at Elevate 22!",
     "body": "Dear monday U community, We are excited to invite you to Elevate ‘22 – monday.coms online global conference! As part of the event, you'll be able to explore how to achieve more with your resources, tech, and time and whether or not you use monday.com, you'll enjoy the valuable content! Secure your spot to get: - Critical insights from monday.coms co-founders and CEOs on the future of work - An inside scoop on new features and products that will help you work smarter and faster - Product-focused master classes to give you the specific skills you need to boost efficiency - 7-minute Work it Out Talks with the minds behind monday.com to get ahead of the curve - Inspiration and guidance from leaders at Cartier, Canva, and more!",
     "isRead": false,
@@ -64,6 +71,7 @@
   },
   {
     "id": "e108",
+    "tab": "trash",
     "subject": "[freesound] Your activation link",
     "body": "Hello there etim139, Thank you for signing up at Freesound! In order to activate your Freesound account, please click this link: https://freesound.org/home/activate/etim139/b8f25d58/ . If for some reason this fails, try copy-pasting the complete link into you browser. Some mail clients break up long lines, or do strange things to URLs!",
     "isRead": true,
@@ -73,6 +81,7 @@
   },
   {
     "id": "e109",
+    "tab": "trash",
     "subject": "We noticed a new sign in to your Dropbox",
     "body": "Hi eti, A new computer just signed in to your Dropbox account. To help keep your account secure, let us know if this is you. Is this you? When: Sep 2, 2022 at 11:03 am IDT) What:Desktop Client on Windows 11 22000",
     "isRead": false,
@@ -82,11 +91,62 @@
   },
   {
     "id": "e110",
+    "tab": "starred",
     "subject": "Adam Bercovich shared CaSep22-Materials with you",
     "body": "Hi eti, Adam Bercovich (adamberco@gmail.com) invited you to view the folder CaSep22-Materials on Dropbox",
     "isRead": true,
     "sentAt": 1667999200000,
     "from": "Adam Bercovich",
     "to": "etironi100@appsus.com"
+  },
+  {
+    "id": "e111",
+    "tab": "sent",
+    "subject": "Adam Bercovich shared CaSep22-Materials with you",
+    "body": "Hi eti, Adam Bercovich (adamberco@gmail.com) invited you to view the folder CaSep22-Materials on Dropbox",
+    "isRead": true,
+    "sentAt": 1667999200000,
+    "from": "etironi100@appsus.com",
+    "to": "Adam Bercovich"
+  },
+  {
+    "id": "e112",
+    "tab": "sent",
+    "subject": "Adam Bercovich shared CaSep22-Materials with you",
+    "body": "Hi eti, Adam Bercovich (adamberco@gmail.com) invited you to view the folder CaSep22-Materials on Dropbox",
+    "isRead": true,
+    "sentAt": 1667999200000,
+    "from": "etironi100@appsus.com",
+    "to": "Roni Siles"
+  },
+  {
+    "id": "e113",
+    "tab": "sent",
+    "subject": "Adam Bercovich shared CaSep22-Materials with you",
+    "body": "Hi eti, Adam Bercovich (adamberco@gmail.com) invited you to view the folder CaSep22-Materials on Dropbox",
+    "isRead": true,
+    "sentAt": 1667999200000,
+    "from": "etironi100@appsus.com",
+    "to": "Tamar Yom-Tov"
+  },
+  {
+    "id": "e114",
+    "tab": "draft",
+    "subject": "Adam Bercovich shared CaSep22-Materials with you",
+    "body": "Hi eti, Adam Bercovich (adamberco@gmail.com) invited you to view the folder CaSep22-Materials on Dropbox",
+    "isRead": true,
+    "sentAt": 1667999200000,
+    "from": "etironi100@appsus.com",
+    "to": "Roni Siles"
+  },
+  {
+    "id": "e115",
+    "tab": "draft",
+    "subject": "Adam Bercovich shared CaSep22-Materials with you",
+    "body": "Hi eti, Adam Bercovich (adamberco@gmail.com) invited you to view the folder CaSep22-Materials on Dropbox",
+    "isRead": true,
+    "sentAt": 1667999200000,
+    "from": "etironi100@appsus.com",
+    "to": "Yael Pery"
   }
 ]
