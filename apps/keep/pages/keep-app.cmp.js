@@ -9,7 +9,7 @@ export default {
     <keep-add @saved="addKeep"/>
     <div class= "keep-lists-container">
       <keep-folder-list />
-      <keep-list :keeps= "this.keeps"  />
+      <keep-list @removed="removeKeep"  :keeps= "this.keeps"  />
 </div>
 
 </section>
@@ -29,6 +29,10 @@ export default {
       const keep = keepService.getEmptyKeep()
       keep.info = info
       keepService.save(keep).then((keep) => this.keeps.unshift(keep))
+    },
+    removeKeep(keepId) {
+      const idx = this.keeps.findIndex((keep) => keep.id === keepId)
+      keepService.remove(keepId).then(() => this.keeps.splice(idx, 1))
     },
   },
 

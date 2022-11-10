@@ -1,5 +1,3 @@
-import { keepService } from '../services/keep-service.js'
-
 export default {
   template: `<section class="keep-add" > 
       <h2 class="title"  @blur="getInput($event,'title')" :contenteditable="true">note title</h2>
@@ -10,7 +8,6 @@ export default {
   data() {
     return {
       info: { title: 'title', txt: 'some text' },
-      //   isEditable: false,
     }
   },
   methods: {
@@ -29,13 +26,6 @@ export default {
         default:
           break
       }
-      //   const classList = Array.from(target.classList)
-      //   if (classList.includes('txt')) {
-      //     console.log(target.innerText)
-      //   }
-      //   if (classList.includes('txt')) {
-      //     console.log(target.innerText)
-      //   }
     },
   },
 }

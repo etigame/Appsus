@@ -41,3 +41,10 @@ button {
 .debug * {
   outline: 1px solid gold;
 }
+
+.backdrop {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+}

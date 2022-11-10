@@ -4,4 +4,9 @@ export default {
                 <h2>{{info.title}}</h2>
                 <p>{{info.txt}}</p>
             </article>`,
+  methods: {
+    isEditable() {
+      this.$emit('edit', true)
+    },
+  },
 }
