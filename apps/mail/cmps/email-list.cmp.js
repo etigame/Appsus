@@ -7,7 +7,7 @@ export default {
         <section v-if="isListShown" class="email-list">
             <ul class="clean-list">
                 <li v-for="email in emails" :key="email.id">
-                    <email-preview :email="email"/>
+                    <email-preview :email="email" @click="updateUnread(email)"/>
                 </li>
             </ul>
         </section>
@@ -18,6 +18,10 @@ export default {
     }
     },
   methods: {
+    updateUnread(email) {
+      if (!email.isRead) this.$emit('updateUnread', email)
+      else return
+    }
   },
   computed: {
     emailId() {

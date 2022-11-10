@@ -10,10 +10,10 @@
 
 /* General Components */
 @import 'cmps/home-page.css';
-@import 'cmps/app-header.css';
 @import 'cmps/user-msg.css';
 
 /* Email */
+@import 'apps/email/email-header.css';
 @import 'apps/email/email-app.css';
 @import 'apps/email/email-preview.css';
 @import 'apps/email/email-list.css';

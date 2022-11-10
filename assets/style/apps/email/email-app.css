@@ -1,3 +1,21 @@
-body {
-background-color: var(--clr2);
+.email-app {
+  position: relative;
+  background-color: var(--clr2);
+}
+
+.email-app-main {
+    height: 85vh;
+}
+
+.btn-compose {
+  background-color: var(--secondary-clr1);
+  border: none;
+  color: var(--font-clr);
+  font-family: Google-sans-regular, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 12px;
+  width: 200px;
+  display: flex;
+  padding: 10px;
 }

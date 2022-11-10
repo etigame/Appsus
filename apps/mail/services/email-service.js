@@ -41,7 +41,16 @@ function save(email) {
 }
 
 function getEmptyEmail() {
-  // return { id: '', vendor, maxSpeed}
+  return {
+  id: utilService.makeId(),
+  tab: 'sent',
+  subject: '',
+  body: '',
+  isRead: true,
+  sentAt: Date.now(),
+  from: 'etironi100@appsus.com',
+  to: ''
+}
 }
 
 function getNextEmailId(emailId) {

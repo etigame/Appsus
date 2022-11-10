@@ -8,7 +8,6 @@ export default {
             <email-filter />
             <button>
                 <span v-html="setSvg('koogleApps')"></span>
-                <!-- <img :src="setSvg('strudelApps')" alt="" /> -->
             </button>
         </header>
     `,
