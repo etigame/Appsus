@@ -1,6 +1,9 @@
 .keep-app {
-  display: flex;
   margin-right: 60px;
+}
+
+.keep-lists-container {
+  display: flex;
 }
 
 .keep-list {
@@ -43,4 +46,16 @@
   background-color: var(--secondary-clr2);
   border-start-end-radius: 2rem;
   border-end-end-radius: 2rem;
+}
+
+.keep-add {
+  border: 2px solid black;
+  width: 300px;
+  height: 100px;
+  margin: 0 auto;
+  background: white;
+}
+
+.keep-add [contenteditable] {
+  outline: 0px solid transparent;
 }

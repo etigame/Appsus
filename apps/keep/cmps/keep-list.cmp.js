@@ -1,5 +1,5 @@
-import keepTxt from './keep-txt.cmp.js'
-import keepImg from './keep-img.cmp.js'
+import keepTxt from './keep-preview/keep-txt.cmp.js'
+import keepImg from './keep-preview/keep-img.cmp.js'
 
 export default {
   props: ['keeps'],

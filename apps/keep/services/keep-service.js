@@ -35,6 +35,15 @@ function save(keep) {
 }
 
 function getEmptyKeep() {
+  return {
+    id: utilService.makeId(),
+    type: 'keep-txt',
+    isPinned: true,
+    info: {
+      title: null,
+      txt: null,
+    },
+  }
   // return { id: '', vendor, maxSpeed}
 }
 
