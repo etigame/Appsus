@@ -1,5 +1,4 @@
 .email-compose {
-    z-index: 10;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -7,6 +6,7 @@
     width: 40%;
     font-size: 0.875rem;
     border-radius: 12px 12px 0px 0px;
+    z-index: 10;
 }
 
 .email-compose .header {

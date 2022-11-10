@@ -42,7 +42,6 @@ function save(email) {
 
 function getEmptyEmail() {
   return {
-  id: utilService.makeId(),
   tab: 'sent',
   subject: '',
   body: '',

@@ -1,6 +1,7 @@
 import { iconsService } from '../../../services/icons-service.js'
 
 export default {
+  name: 'emailPreview',
   props: ['email'],
   template: `
         <article class="email-preview flex align-center" :class="previewStyle">
