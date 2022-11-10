@@ -3,7 +3,7 @@ import { iconsService } from '../../../services/icons-service.js'
 export default {
     template: `
     <section className="email-compose">
-        <h1>email compose</h1>
+        <h1>Compose</h1>
         <img :src="setSvg('compose')" alt="compose-icon" />
     </section>
     `,

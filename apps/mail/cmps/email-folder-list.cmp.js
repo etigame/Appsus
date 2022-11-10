@@ -1,7 +1,20 @@
 export default {
-    template: `
-    <section className="email-folder-list">
-        <h1>email folder list</h1>
-    </section>
-    `
+    props: ['unreadCount'],
+  template: `
+    <section class= "email-folder-list">
+        <ul class="clean-list">
+            <li>
+              Inbox <span> {{unreadCount}} </span>
+            </li>
+            <li>
+              Sent 
+            </li>
+            <li>
+              Trash 
+            </li>
+            <li>
+              Draft 
+            </li>
+          </ul>
+    </section>`,
 }

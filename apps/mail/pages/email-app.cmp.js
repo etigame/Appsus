@@ -17,25 +17,29 @@ export default {
   template: `
     <section class="email-app">
         <email-header />
-        <!-- <email-filter @filter="setFilter"/> -->
-        <router-link to="/email/compose">
-            <email-compose />
-        </router-link>
-        <email-folder-list />
-        <email-list 
-            @selected="selectEmail" 
-            @remove="removeEmail" 
-            :emails="emails"/>
-        <email-details 
-            :email="selectedEmail"
-            @close="selectedEmail = null" 
-            v-if="selectedEmail" />
+        <section className="email-app-main flex">
+            <section className="email-app-aside flex-column">
+                <router-link to="/email/compose">
+                    <email-compose />
+                </router-link>
+                <email-folder-list :unreadCount="unreadCount" />
+            </section>
+            <email-list 
+                @selected="selectEmail" 
+                @remove="removeEmail" 
+                :emails="emails"/>
+            <email-details 
+                :email="selectedEmail"
+                @close="selectedEmail = null" 
+                v-if="selectedEmail" />
+            </section>
     </section>
     `,
   data() {
     return {
       emails: [],
       selectedEmail: null,
+      unreadCount: null
     //   filterBy: {
     //     vendor: '',
     //     minSpeed: 0,
@@ -44,9 +48,11 @@ export default {
   },
   created() {
     eventBus.on('filter', this.filter)
-    
+
     emailService.query().then((emails) => {
       this.emails = emails
+
+      this.unreadCount = emails.filter(email => email.isRead === false).length
     })
 },
 methods: {

@@ -4,7 +4,9 @@ import { iconsService } from '../../../services/icons-service.js'
 export default {
   template: `
     <section className="email-filter">
-            <img src="setSvg('search')" alt="search-icon" />
+        <div className="sprite"></div>
+        <div className="sprite2"></div>
+            <span v-html="setSvg('search')"></span>
             <input 
             type="search"  
             @input="filter" 
@@ -24,4 +26,6 @@ export default {
       return iconsService.getSvg(iconName)
     },
   },
+
+
 }

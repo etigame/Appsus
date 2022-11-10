@@ -1,0 +1,18 @@
+.email-folder-list {
+    min-width: 280px;
+    height: fit-content;
+    padding-block-end: 50px;
+    margin-right: 50px;
+    font-weight: 600;
+  }
+  
+  .email-folder-list li {
+    padding: 20px 40px;
+  }
+  
+  .email-folder-list li:hover {
+    background-color: var(--secondary-clr2);
+    border-start-end-radius: 2rem;
+    border-end-end-radius: 2rem;
+  }
+  

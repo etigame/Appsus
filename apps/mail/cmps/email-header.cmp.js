@@ -3,11 +3,12 @@ import { iconsService } from '../../../services/icons-service.js'
 
 export default {
   template: `
-        <header class="email-header flex">
+        <header class="email-header flex justify-between">
             <h1>Logo</h1>
             <email-filter />
             <button>
-                <span v-html="setSvg('strudelApps')"></span>
+                <span v-html="setSvg('koogleApps')"></span>
+                <!-- <img :src="setSvg('strudelApps')" alt="" /> -->
             </button>
         </header>
     `,
