@@ -1,7 +1,7 @@
 export default {
   props: ['info'],
-  template: `<div class="keep-img-container">
-                <h2>{{ info.title }}</h2>
+  template: `<article class="keep-img-container">
                 <img :src="info.url" >
-              </div>`,
+                <h2>{{ info.title }}</h2>
+            </article>`,
 }

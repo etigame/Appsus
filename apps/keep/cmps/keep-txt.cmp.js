@@ -1,6 +1,7 @@
 export default {
   props: ['info'],
-  template: `<div class="keep-txt-container">
+  template: `<article class="keep-txt-container">
+                <h2>{{info.title}}</h2>
                 <p>{{info.txt}}</p>
-            </div>`,
+            </article>`,
 }

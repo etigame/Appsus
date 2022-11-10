@@ -4,6 +4,7 @@
     "type": "keep-txt",
     "isPinned": true,
     "info": {
+      "title": "Remember!",
       "txt": "'You either walk inside you story and own it, or you stand outside your story and hustle for your worthiness!' Brene Brown"
     }
   },
@@ -12,7 +13,8 @@
     "type": "keep-txt",
     "isPinned": true,
     "info": {
-      "txt": "TOP SECRET"
+      "title": "TOP SECRET",
+      "txt": ""
     }
   },
   {
@@ -20,6 +22,7 @@
     "type": "keep-txt",
     "isPinned": true,
     "info": {
+      "title": "The Road Not Taken",
       "txt": "Two roads diverged in a yellow wood,And sorry I could not travel bothAnd be one traveler, long I stoodAnd looked down one as far as I couldTo where it bent in the undergrowth;Then took the other, as just as fair,And having perhaps the better claim,Because it was grassy and wanted wear;Though as for that the passing thereHad worn them really about the same,And both that morning equally layIn leaves no step had trodden black.Oh, I kept the first for another day!Yet knowing how way leads on to way,I doubted if I should ever come back.I shall be telling this with a sighSomewhere ages and ages hence:Two roads diverged in a wood, and I—I took the one less traveled by,And that has made all the difference."
     }
   },
@@ -28,6 +31,7 @@
     "type": "keep-txt",
     "isPinned": true,
     "info": {
+      "title": "Quote of the Day",
       "txt": "Code is like humor. When you have to explain it, it’s bad. – Cory House"
     }
   },

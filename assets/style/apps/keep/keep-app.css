@@ -1,22 +1,46 @@
+.keep-app {
+  display: flex;
+  margin-right: 60px;
+}
+
 .keep-list {
-  column-count: 5;
+  column-count: 4;
   column-gap: 1.5rem;
+  max-width: 100%;
+  padding-top: 50px;
 }
 
 .keep-list > * {
-  border: 1px solid black;
+  border: 1px solid var(--clr4);
   break-inside: avoid;
   margin-block-end: 1rem;
   width: 100%;
+  border-radius: 0.8rem;
+  overflow: hidden;
 }
 
-.keep-txt-container {
-  background-color: pink;
-  padding: 10px;
+.keep-list > * h2 {
+  padding: 20px;
 }
+
 .keep-txt-container p {
+  padding: 20px;
 }
 
-.keep-img-container {
-  background-color: aqua;
+.keep-folder-list {
+  min-width: 280px;
+  height: fit-content;
+  padding-block-end: 50px;
+  margin-right: 50px;
+  font-weight: 600;
+}
+
+.keep-folder-list li {
+  padding: 20px 40px;
+}
+
+.keep-folder-list li:hover {
+  background-color: var(--secondary-clr2);
+  border-start-end-radius: 2rem;
+  border-end-end-radius: 2rem;
 }

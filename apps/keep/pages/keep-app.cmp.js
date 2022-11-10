@@ -1,10 +1,12 @@
 import { keepService } from '../services/keep-service.js'
 import keepList from '../cmps/keep-list.cmp.js'
+import keepFolderList from '../cmps/keep-folder-list.cmp.js'
 
 export default {
   template: ` <section className="keep-app">
-  <h1>keep app</h1>
-  <keep-list :keeps= "this.keeps" />
+      <keep-folder-list />
+  <keep-list :keeps= "this.keeps"  />
+
 </section>
 `,
   data() {
@@ -20,5 +22,6 @@ export default {
 
   components: {
     keepList,
+    keepFolderList,
   },
 }
