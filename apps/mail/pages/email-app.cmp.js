@@ -1,11 +1,6 @@
 import { emailService } from '../services/email-service.js'
-import { eventBus } from '../../../services/event-bus.service.js'
+import { eventBus, showErrorMsg, showSuccessMsg, } from '../../../services/event-bus.service.js'
 import { iconsService } from '../../../services/icons-service.js'
-
-import {
-  showErrorMsg,
-  showSuccessMsg,
-} from '../../../services/event-bus.service.js'
 
 import emailFilter from '../cmps/email-filter.cmp.js'
 import emailList from '../cmps/email-list.cmp.js'
@@ -29,10 +24,8 @@ export default {
                 <email-folder-list :unreadCount="unreadCount" />
             </section>
             <email-list 
-                @selected="selectEmail" 
-                @remove="removeEmail" 
-                @updateUnread ="updateUnread"
-                :emails="emails"/>
+                :emails="emailsToShow"
+                @updateUnread="updateUnread"/>
             <email-details 
                 :email="selectedEmail"
                 @close="selectedEmail = null" 
@@ -44,6 +37,7 @@ export default {
     return {
       emails: null,
       selectedEmail: null,
+      filterBy: null
     }
   },
   created() {
@@ -75,8 +69,16 @@ export default {
         this.emails.splice(idx, 1, email)
       })
     },
+    removeEmail() {
+        console.log('removeEmail');
+    },
   },
   computed: {
+    emailsToShow() {
+        // const regex = new RegExp(this.filterBy, 'i')
+        // var emails = this.emails.filter(email => regex.test(email.filterBy))
+        return this.emails
+    },
     unreadCount() {
       if (!this.emails) return ''
       return this.emails.filter((email) => email.isRead === false).length

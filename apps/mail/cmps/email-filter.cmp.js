@@ -15,6 +15,11 @@ export default {
             placeholder="Search mail" />
     </section>
     `,
+    data() {
+      return {
+        keyword: null
+      }
+    },
   mounted() {
     this.$refs.filter.focus()
   },

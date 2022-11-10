@@ -1,7 +1,9 @@
 import emailPreview from './email-preview.cmp.js'
 
 export default {
+  name: 'emailList',
   props: ['emails'],
+  emits: ['updateUnread'],
   template: `
         <router-view></router-view>
         <section v-if="isListShown" class="email-list">
