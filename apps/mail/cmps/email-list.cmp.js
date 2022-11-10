@@ -7,9 +7,7 @@ export default {
         <section v-if="isListShown" class="email-list">
             <ul class="clean-list">
                 <li v-for="email in emails" :key="email.id">
-                    <router-link :to="'/email/'+email.id">
-                        <email-preview :email="email"/>
-                    </router-link>
+                    <email-preview :email="email"/>
                 </li>
             </ul>
         </section>

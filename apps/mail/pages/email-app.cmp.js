@@ -1,4 +1,6 @@
 import { emailService } from '../services/email-service.js'
+import { eventBus } from '../../../services/event-bus.service.js'
+
 import {
   showErrorMsg,
   showSuccessMsg,
@@ -9,11 +11,13 @@ import emailList from '../cmps/email-list.cmp.js'
 import emailFolderList from '../cmps/email-folder-list.cmp.js'
 import emailDetails from './email-details.cmp.js'
 import emailCompose from './email-compose.cmp.js'
+import emailHeader from '../cmps/email-header.cmp.js'
 
 export default {
   template: `
     <section class="email-app">
-        <email-filter @filter="setFilter"/>
+        <email-header />
+        <!-- <email-filter @filter="setFilter"/> -->
         <router-link to="/email/compose">
             <email-compose />
         </router-link>
@@ -39,11 +43,16 @@ export default {
     }
   },
   created() {
+    eventBus.on('filter', this.filter)
+    
     emailService.query().then((emails) => {
       this.emails = emails
     })
-  },
-  methods: {
+},
+methods: {
+      filter(keyword) {
+          console.log(keyword)
+      },
     selectEmail(emailId) {
         emailService.get(emailId).then((email) => (this.selectedEmail = email))
       },
@@ -78,6 +87,7 @@ export default {
       emailList,
       emailFolderList,
       emailDetails,
-      emailCompose
+      emailCompose,
+      emailHeader
   }
 }
