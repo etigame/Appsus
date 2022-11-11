@@ -3,9 +3,9 @@ import emailPreview from './email-preview.cmp.js'
 export default {
   name: 'emailList',
   props: ['emails'],
-  emits: ['updateUnread'],
+  emits: ['updateUnread', 'removed'],
   template: `
-        <router-view></router-view>
+        <router-view/>
         <section v-if="isListShown" class="email-list">
             <ul class="clean-list">
                 <li v-for="email in emails" :key="email.id">
@@ -14,6 +14,9 @@ export default {
             </ul>
         </section>
     `,
+    created(){
+      console.log('email list created');
+    },
     data() {
         return {
         isListShown: true,
@@ -21,6 +24,7 @@ export default {
     },
   methods: {
     updateUnread(email) {
+      console.log('updateUnread');
       if (!email.isRead) this.$emit('updateUnread', email)
       else return
     }

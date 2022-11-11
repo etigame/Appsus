@@ -32,3 +32,12 @@ export function showSuccessMsg(txt) {
 export function showErrorMsg(txt) {
     showUserMsg({txt, type: 'error'})
 }
+
+export function emitUpdate(entity){
+    console.log(entity);
+    eventBus.emit('updated', entity)
+}
+
+export function emitRemove(entityId){
+    eventBus.emit('removed', entityId)
+}

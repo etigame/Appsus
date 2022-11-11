@@ -1,3 +1,4 @@
+import { emitUpdate } from '../../../services/event-bus.service.js'
 import { iconsService } from '../../../services/icons-service.js'
 
 export default {
@@ -16,12 +17,33 @@ export default {
                 <p className="subject">{{ email.subject}}</p>
                 <p className="sent-time">{{ displaySentTime }}</p>
             </router-link>
+            <section class="actions clean-list flex justify-center align-center">
+              <button class="delete-btn" @click="remove(email.id)">
+                <img :src="setSvg('trash')" alt="trash-icon" />
+              </button>
+              <button class="mark-read-btn" @click="toggleRead">
+                <img :src="email.isRead ? setSvg('openMail') : setSvg('closeMail')" alt="mark-read-icon" />
+              </button>
+              <!-- <button class="mark-unread-btn" v-if="email.isRead">
+                <img :src="setSvg('closeMail')" alt="mark-unread-icon" />
+              </button> -->
+            </section>
         </article>
     `,
+   
   methods: {
     setSvg(iconName) {
       return iconsService.getSvg(iconName)
     },
+    remove(emailId) {
+      this.$emit('remove', emailId)
+    },
+    toggleRead(){
+      const email = JSON.parse(JSON.stringify(this.email))
+      email.isRead = !email.isRead
+      emitUpdate(email)
+      // this.$emit('updated', email)
+    }
   },
   computed: {
     displaySentTime() {

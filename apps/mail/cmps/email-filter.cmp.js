@@ -4,20 +4,22 @@ import { iconsService } from '../../../services/icons-service.js'
 export default {
   template: `
     <section className="email-filter">
-        <div className="sprite"></div>
-        <div className="sprite2"></div>
+        <!-- <div className="sprite"></div>
+        <div className="sprite2"></div> -->
             <span v-html="setSvg('search')"></span>
             <input 
             type="search"  
             @input="filter" 
-            v-model="keyword" 
+            v-model="filterBy.keyword" 
             ref="filter"
             placeholder="Search mail" />
     </section>
     `,
     data() {
       return {
-        keyword: null
+        filterBy: {
+          keyword: ''
+        }
       }
     },
   mounted() {
@@ -25,12 +27,10 @@ export default {
   },
   methods: {
     filter() {
-      eventBus.emit('filter', this.keyword)
+      eventBus.emit('filter', {...this.filterBy})
     },
     setSvg(iconName) {
       return iconsService.getSvg(iconName)
     },
   },
-
-
 }
