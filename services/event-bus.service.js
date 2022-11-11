@@ -34,8 +34,11 @@ export function showErrorMsg(txt) {
 }
 
 export function emitUpdate(entity){
-    console.log(entity);
     eventBus.emit('updated', entity)
+}
+
+export function emitSend(entity) {
+    eventBus.emit('sent', entity)
 }
 
 export function emitRemove(entityId){

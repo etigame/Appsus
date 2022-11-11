@@ -64,11 +64,6 @@ function _createEmails() {
   let emails = utilService.loadFromStorage(EMAIL_KEY)
   if (!emails || !emails.length) {
     emails = gEmails
-    // emails.push(_createEmail('Audu Mea', 300))
-    // cars.push(_createCar('Fiak Ibasa', 120))
-    // cars.push(_createCar('Subali Pesha', 100))
-    // cars.push(_createCar('Mitsu Bashi', 150))
-
     utilService.saveToStorage(EMAIL_KEY, emails)
   }
   return emails

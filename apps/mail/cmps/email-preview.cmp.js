@@ -1,5 +1,7 @@
 import { emitUpdate } from '../../../services/event-bus.service.js'
 import { iconsService } from '../../../services/icons-service.js'
+import { eventBus, emitRemove } from '../../../services/event-bus.service.js'
+
 
 export default {
   name: 'emailPreview',
@@ -22,7 +24,7 @@ export default {
                 <img :src="setSvg('trash')" alt="trash-icon" />
               </button>
               <button class="mark-read-btn" @click="toggleRead">
-                <img :src="email.isRead ? setSvg('openMail') : setSvg('closeMail')" alt="mark-read-icon" />
+                <img :src="email.isRead ? setSvg('closeMail') : setSvg('openMail')" alt="mark-read-icon" />
               </button>
               <!-- <button class="mark-unread-btn" v-if="email.isRead">
                 <img :src="setSvg('closeMail')" alt="mark-unread-icon" />
@@ -36,13 +38,14 @@ export default {
       return iconsService.getSvg(iconName)
     },
     remove(emailId) {
-      this.$emit('remove', emailId)
+      emitRemove(emailId)
+      // this.$emit('remove', emailId)
     },
     toggleRead(){
-      const email = JSON.parse(JSON.stringify(this.email))
+      const email = JSON.parse(JSON.stringify(this.email)) // create clone to property
       email.isRead = !email.isRead
       emitUpdate(email)
-      // this.$emit('updated', email)
+      // this.$emit('updated', email) - also option
     }
   },
   computed: {

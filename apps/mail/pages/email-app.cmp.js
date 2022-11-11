@@ -14,7 +14,7 @@ import emailCompose from './email-compose.cmp.js'
 import emailHeader from '../cmps/email-header.cmp.js'
 
 export default {
-  name: 'email-app',
+  name: 'emailApp',
   template: `
     <section class="email-app">
         <email-header />
@@ -31,9 +31,8 @@ export default {
                 <email-folder-list :unreadCount="unreadCount" />
             </section>
             <router-view 
-            :emails="emailsToShow" 
-            @removed="removeEmail"  
-            @updateUnread="updateUnread"/>
+            :emails="emailsToShow" />
+              <!-- the router view contains: email-list or email-details  -->
                 <!-- <email-list 
                 @remove="removeEmail"
                 :emails="emailsToShow"
@@ -62,6 +61,7 @@ export default {
   created() {
     eventBus.on('filter', this.setFilter)
     eventBus.on('updated', this.updateEmail)
+    eventBus.on('sent', this.sendEmail)
     eventBus.on('removed', this.removeEmail)
     this.getEmails()
   },
@@ -82,17 +82,28 @@ export default {
     setSvg(iconName) {
       return iconsService.getSvg(iconName)
     },
-    updateEmail(email){
+    updateEmail(email){ // update for change unread, sent email, stared etc..
       emailService.save(email).then(email => {
-        console.log(email);
         const emailId = email.id
         const idx = this.emails.findIndex((email) => email.id === emailId)
         this.emails.splice(idx, 1, email)
       })
     },
     sendEmail(email){
-      // Sending email(adding)
+      this.emails.unshift(email)
     },
+    removeEmail(emailId){
+      emailService.remove(emailId)
+      .then(() => {
+        const idx = this.emails.findIndex(email => email.id === emailId)
+        this.emails.splice(idx, 1)
+        showSuccessMsg(`Conversation moved to Trash`)
+      })
+        .catch((err) => {
+          console.log('OOPS', err)
+          showErrorMsg('Cannot delete massege')
+        })
+    }
     // updateUnread(email) {
     //   email.isRead = true
     //   emailService.save(email).then((email) => {
@@ -103,9 +114,6 @@ export default {
     //     this.emails.splice(idx, 1, email)
     //   })
     // },
-    removeEmail(emailId){
-
-    }
   },
   computed: {
     emailsToShow() {

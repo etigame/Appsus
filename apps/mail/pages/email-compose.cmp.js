@@ -1,8 +1,9 @@
 import { emailService } from '../services/email-service.js'
 import { iconsService } from '../../../services/icons-service.js'
-import { eventBus, showErrorMsg, showSuccessMsg, } from '../../../services/event-bus.service.js'
+import { eventBus, emitUpdate, showErrorMsg, showSuccessMsg, } from '../../../services/event-bus.service.js'
 
 export default {
+    name: 'emailCompose',
   template: `
     <section className="email-compose flex flex-column">
         <div class="header flex justify-between">
@@ -48,8 +49,9 @@ export default {
         emailService.save(this.emailToEdit)
             .then(email => {
                 showSuccessMsg(`Message to ${email.to} sent`)
-                this.$router.push('/email')
-                this.$emit('addEmail', email)
+                this.$router.back()
+                emitUpdate(email)
+                // this.$emit('addEmail', email)
             })
             .catch(err => {
                 console.log('OOps:', err)

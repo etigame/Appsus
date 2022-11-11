@@ -2,6 +2,7 @@ import { eventBus } from '../../../services/event-bus.service.js'
 import { iconsService } from '../../../services/icons-service.js'
 
 export default {
+  name: 'emailFilter',
   template: `
     <section className="email-filter">
         <!-- <div className="sprite"></div>

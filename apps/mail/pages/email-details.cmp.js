@@ -1,8 +1,9 @@
 import { emailService } from '../services/email-service.js'
-import { emitUpdate, showErrorMsg } from '../../../services/event-bus.service.js'
+import { emitUpdate, emitRemove, showErrorMsg } from '../../../services/event-bus.service.js'
 import { iconsService } from '../../../services/icons-service.js'
 
 export default {
+  name: 'emailDetails',
   template: `
         <section v-if="email" class="email-details">
           <pre> {{email}} </pre>
@@ -30,24 +31,14 @@ export default {
           this.email = email
           emitUpdate(email)
         })
-        .catch((err) => showErrorMsg('Cannot load email'))
+        // .catch((err) => showErrorMsg('Cannot load email' + err))
     },
     setSvg(iconName) {
       return iconsService.getSvg(iconName)
     },
     remove(emailId) {
-      emailService
-        .remove(emailId)
-        .then(() => {
-          // const idx = this.emails.findIndex((email) => email.id === emailId)
-          // this.emails.splice(idx, 1)
-          this.$router.push('inbox')
-          showSuccessMsg(`Conversation moved to Trash`)
-        })
-        .catch((err) => {
-          console.log('OOPS', err)
-          showErrorMsg('Cannot delete massege')
-        })
+      emitRemove(emailId)
+      this.$router.push('inbox')
     },
   },
   computed: {
@@ -57,7 +48,6 @@ export default {
   },
   watch: {
     emailId() {
-      console.log('Email Id changed')
       this.loadEmail()
     },
   },

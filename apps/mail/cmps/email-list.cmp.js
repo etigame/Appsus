@@ -14,9 +14,6 @@ export default {
             </ul>
         </section>
     `,
-    created(){
-      console.log('email list created');
-    },
     data() {
         return {
         isListShown: true,
@@ -24,7 +21,6 @@ export default {
     },
   methods: {
     updateUnread(email) {
-      console.log('updateUnread');
       if (!email.isRead) this.$emit('updateUnread', email)
       else return
     }

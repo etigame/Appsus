@@ -1,5 +1,6 @@
 export default {
-    props: ['unreadCount'],
+  name: 'emailFolderList',
+  props: ['unreadCount'],
   template: `
     <section class= "email-folder-list">
         <ul class="clean-list">
