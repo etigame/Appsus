@@ -19,18 +19,17 @@ export default {
     <section class="email-app">
         <email-header />
 
-        <section className="email-app-main flex">
-            <section className="email-app-aside flex-column">
-                <router-link to="/email/inbox/compose">
-                    <button class="btn-compose flex justify-between">
-                        <img :src="setSvg('compose')" alt="compose-icon" />
-                        <p>Compose</p>
-                    </button>
-                </router-link>
+        <section className="email-app-aside flex-column">
+            <router-link to="/email/inbox/compose">
+                <button class="btn-compose flex justify-between">
+                    <img :src="setSvg('compose')" alt="compose-icon" />
+                    <p>Compose</p>
+                </button>
+            </router-link>
+            <email-folder-list :unreadCount="unreadCount" />
+        </section>
 
-                <email-folder-list :unreadCount="unreadCount" />
-            </section>
-            <router-view v-if="emails" :emails="emailsToShow" />
+        <router-view v-if="emails" :emails="emailsToShow" />
               <!-- the router view contains: email-list or email-details  -->
                 <!-- <email-list 
                 @remove="removeEmail"
@@ -43,8 +42,6 @@ export default {
                       @close="selectedEmail = null" 
                       v-else />
                 </router-link> -->
-           
-        </section>
     </section>
     `,
   data() {

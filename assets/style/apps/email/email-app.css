@@ -3,7 +3,7 @@
   background-color: var(--clr2);
   display: grid;
   grid-template-columns: 1fr 5fr;
-  grid-template-rows: 1fr 8fr;
+  grid-template-rows: 10vh 90vh;
   grid-template-areas: 
   'header header'
   'aside list';
@@ -11,10 +11,6 @@
 
 .email-app-aside {
   grid-area: aside;
-}
-
-.email-app-main {
-    height: 85vh;
 }
 
 .btn-compose {

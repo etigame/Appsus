@@ -1,18 +1,16 @@
 .email-folder-list {
-    /* width: 250px; */
-    height: fit-content;
-    padding-block-end: 50px;
-    margin-right: 50px;
     font-weight: 600;
   }
   
   .email-folder-list li {
+    display: flex;
+    align-items: center;
     padding: 0 8px 0 26px;
     cursor: pointer;
   }
   
   .email-folder-list li:hover {
-    background-color: var(--clr4);
+    background-color: var(--clr3);
     border-start-end-radius: 2rem;
     border-end-end-radius: 2rem;
   }
