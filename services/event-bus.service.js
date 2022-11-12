@@ -49,3 +49,7 @@ export function emitRemove(entityId){
 export function emitFilter(filterBy) {
     eventBus.emit('filtered', filterBy)
 }
+
+export function emitSort(sortBy) {
+    eventBus.emit('sorted', sortBy)
+}

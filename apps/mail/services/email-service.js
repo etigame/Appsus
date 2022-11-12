@@ -42,10 +42,14 @@ function save(email) {
 
 function getEmptyEmail() {
   return {
-  tab: 'sent',
   subject: '',
   body: '',
   isRead: true,
+  isInbox: false,
+  isStarred: false,
+  isImportant: false,
+  isDraft: false,
+  isTrash: false,
   sentAt: Date.now(),
   from: 'etironi100@appsus.com',
   to: ''

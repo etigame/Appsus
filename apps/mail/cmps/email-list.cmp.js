@@ -1,4 +1,5 @@
 import emailPreview from './email-preview.cmp.js'
+import { eventBus, emitSort } from '../../../services/event-bus.service.js';
 
 export default {
   name: 'emailList',
@@ -8,9 +9,9 @@ export default {
         <router-view/>
         <section v-if="isListShown" class="email-list">
           <section class="email-list-sort-bar flex justify-between">
-            <div className="sort-from" @click="sortList">From</div>
-            <div className="sort-subject" @click="sortList">Subject</div>
-            <div className="sort-date" @click="sortList">Date</div>
+            <div className="sort-from" @click="sortList('from')">From</div>
+            <div className="sort-subject" @click="sortList('subject')">Subject</div>
+            <div className="sort-date" @click="sortList('sentAt')">Date</div>
           </section>
             <ul class="clean-list">
                 <li v-for="email in emails" :key="email.id">
@@ -25,8 +26,8 @@ export default {
     }
     },
   methods: {
-    sortList() {
-      console.log(123);
+    sortList(sortBy) {
+      emitSort(sortBy)
     }
 
   },

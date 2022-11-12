@@ -53,6 +53,7 @@ export default {
       selectedEmail: null,
       filterBy: null,
       listIsShown: true,
+      sortDirection: 1,
     }
   },
   created() {
@@ -60,6 +61,7 @@ export default {
     eventBus.on('updated', this.updateEmail)
     eventBus.on('sent', this.sendEmail)
     eventBus.on('removed', this.removeEmail)
+    eventBus.on('sorted', this.setEmailsSort)
     this.getEmails()
   },
   methods: {
@@ -110,6 +112,11 @@ export default {
           showErrorMsg('Cannot delete massege')
         })
     },
+    setEmailsSort(sortBy) {
+      if (sortBy === 'from') this.emails.sort((e1, e2) => e1.from.localeCompare(e2.from) * this.sortDirection)
+      if (sortBy === 'subject') this.emails.sort((e1, e2) => e1.subject.localeCompare(e2.subject) * this.sortDirection)
+      if (sortBy === 'sentAt') this.emails.sort((e1, e2) => e1.sentAt - e2.sentAt)
+    },
   },
   computed: {
     emailsToShow() {
@@ -129,7 +136,7 @@ export default {
           regex.test(email.body)
       )
       if (isRead !== '') {
-        emails = emails.filter(email => email.isRead === isRead)
+        emails = emails.filter((email) => email.isRead === isRead)
       }
       return emails
 

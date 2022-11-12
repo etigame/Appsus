@@ -4,24 +4,41 @@ export default {
   template: `
     <section class= "email-folder-list">
         <ul class="clean-list">
-            <li>
+            <li @click="filter(filterBy.isInbox(true))">
               Inbox <span> {{unreadCount}} </span>
             </li>
-            <li>
+            <li @click="filter(filterBy.isStarred(true))">
               Starred
             </li>
-            <li>
+            <li @click="filter(filterBy.isImportant(true))">
               Important
             </li>
-            <li>
+            <li @click="filter(filterBy.isInbox(false))">
               Sent 
             </li>
-            <li>
+            <li @click="filter(filterBy.isDraft(true))">
               Drafts 
             </li>
-            <li>
+            <li @click="filter(filterBy.isTrash(true))">
               Trash 
             </li>
           </ul>
-    </section>`,
+    </section>
+    `,
+  data() {
+    return {
+      filterBy: {
+        isInbox: '',
+        isStarred: '',
+        isImportant: '',
+        isDraft: '',
+        isTrash: '',
+      },
+    }
+  },
+  methods: {
+    filter() {
+      emitFilter({ ...this.filterBy })
+    },
+  },
 }
