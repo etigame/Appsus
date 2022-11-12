@@ -1,44 +1,98 @@
+import { emitFilter } from '../../../services/event-bus.service.js'
+import { iconsService } from '../../../services/icons-service.js'
+
 export default {
   name: 'emailFolderList',
   props: ['unreadCount'],
   template: `
     <section class= "email-folder-list">
         <ul class="clean-list">
-            <li @click="filter(filterBy.isInbox(true))">
+          <router-link to="/email/inbox">
+            <li @click="filter('inbox')">
+            <button className="btn-inbox">
+                <img :src="setSvg('inbox')" alt="inbox-icon" />
+            </button>
               Inbox <span> {{unreadCount}} </span>
             </li>
-            <li @click="filter(filterBy.isStarred(true))">
+          </router-link>
+
+          <router-link to="/email/inbox">
+            <li @click="filter('starred')">
+            <button className="btn-starred">
+                <img :src="setSvg('starBefore')" alt="star-icon" />
+            </button>
               Starred
             </li>
-            <li @click="filter(filterBy.isImportant(true))">
+          </router-link>
+
+          <router-link to="/email/inbox">
+            <li @click="filter('important')">
+            <button className="btn-important">
+                <img :src="setSvg('importantBefore')" alt="important-icon" />
+            </button>
               Important
             </li>
-            <li @click="filter(filterBy.isInbox(false))">
+          </router-link>
+
+          <router-link to="/email/inbox">
+            <li @click="filter('sent')">
+            <button className="btn-sent">
+                <img :src="setSvg('sent')" alt="sent-icon" />
+            </button>
               Sent 
             </li>
-            <li @click="filter(filterBy.isDraft(true))">
+          </router-link>
+
+          <router-link to="/email/inbox">
+            <li @click="filter('draft')">
+            <button className="btn-drafts">
+                <img :src="setSvg('drafts')" alt="drafts-icon" />
+            </button>
               Drafts 
             </li>
-            <li @click="filter(filterBy.isTrash(true))">
+          </router-link>
+
+          <router-link to="/email/inbox">
+            <li @click="filter('trash')">
+            <button className="btn-trash">
+                <img :src="setSvg('trash')" alt="trash-icon" />
+            </button>
               Trash 
             </li>
+          </router-link>
+
           </ul>
     </section>
     `,
   data() {
     return {
       filterBy: {
-        isInbox: '',
-        isStarred: '',
-        isImportant: '',
-        isDraft: '',
-        isTrash: '',
-      },
+        status:'',
+        isStarred: false,
+        isImportant: false,
+      }
     }
   },
   methods: {
-    filter() {
+    filter(status) {
+      console.log(status);
+      if(status === 'starred') {
+        this.filterBy.isStarred = true
+      } else if(status === 'important') {
+        this.filterBy.isImportant = true
+      } else {
+        this.filterBy.status = status
+      } 
+      
+      console.log(this.filterBy);
       emitFilter({ ...this.filterBy })
+
+      this.filterBy.isImportant = false
+      this.filterBy.isStarred = false
+      this.filterBy.status = ''
+    },
+    setSvg(iconName) {
+      return iconsService.getSvg(iconName)
     },
   },
 }

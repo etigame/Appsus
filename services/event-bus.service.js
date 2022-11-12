@@ -50,6 +50,10 @@ export function emitFilter(filterBy) {
     eventBus.emit('filtered', filterBy)
 }
 
+export function emitTransferFilter(filterBy, ans) {
+    eventBus.emit('transFilter', filterBy, ans)
+}
+
 export function emitSort(sortBy) {
     eventBus.emit('sorted', sortBy)
 }

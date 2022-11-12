@@ -7,7 +7,11 @@ export default {
   template: `
         <section v-if="email" class="email-details">
           <pre> {{email}} </pre>
-          <router-link to="/email/inbox">Back</router-link>
+          <router-link to="/email/inbox">
+            <button class="back-btn">
+              <img :src="setSvg('back')" alt="back-icon" />
+            </button>
+          </router-link>
           <button class="delete-btn" @click="remove(email.id)">
             <img :src="setSvg('trash')" alt="trash-icon" />
           </button>

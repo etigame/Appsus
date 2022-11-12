@@ -25,7 +25,7 @@ export default {
       return {
         filterBy: {
           keyword: '',
-          isRead: ''
+          isRead: '',
         }
       }
     },

@@ -18,6 +18,7 @@
 @import 'apps/email/email-list.css';
 @import 'apps/email/email-folder-list.css';
 @import 'apps/email/email-compose.css';
+@import 'apps/email/email-details.css';
 
 /* Keep */
 @import 'apps/keep/keep-app.css';

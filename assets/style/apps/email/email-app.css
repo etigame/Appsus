@@ -13,9 +13,22 @@
   color: var(--font-clr);
   font-family: Google-sans-regular, sans-serif;
   font-size: 0.875rem;
-  font-weight: 500;
-  border-radius: 12px;
-  width: 200px;
+  font-weight: 600;
+  border-radius: 16px;
+  /* width: 105px; */
   display: flex;
+  margin-inline-start: 8px;
+  cursor: pointer;
+}
+
+.btn-compose:hover {
+  box-shadow: 0 1px 3px 0 rgba(60,64,67,0.302),0 4px 8px 3px rgba(60,64,67,0.149);
+}
+
+.btn-compose > * {
   padding: 10px;
+}
+
+.btn-compose p {
+  padding-inline-end: 20px;
 }

@@ -8,11 +8,11 @@ export default {
   props: ['email'],
   template: `
         <article class="email-preview flex align-center" :class="previewStyle">
-            <button className="btn-star">
-                <img :src="setSvg('starBefore')" alt="star-icon" />
+            <button className="btn-star"  @click="toggleStarred">
+                <img :src="email.isStarred ? setSvg('starActive') : setSvg('starBefore')" alt="star-icon" />
             </button>
-            <button className="btn-important">
-                <img :src="setSvg('importantBefore')" alt="important-before-icon" />
+            <button className="btn-important" @click="toggleImportant">
+                <img :src="email.isImportant ? setSvg('importantActive') : setSvg('importantBefore')" alt="important-before-icon" />
             </button>
             <router-link :to="'/email/'+email.id" class="flex">   
                 <p className="from">{{ email.from }}</p>
@@ -46,6 +46,16 @@ export default {
       email.isRead = !email.isRead
       emitUpdate(email)
       // this.$emit('updated', email) - also option
+    },
+    toggleStarred() {
+      const email = JSON.parse(JSON.stringify(this.email))
+      email.isStarred = !email.isStarred
+      emitUpdate(email)
+    },
+    toggleImportant() {
+      const email = JSON.parse(JSON.stringify(this.email))
+      email.isImportant = !email.isImportant
+      emitUpdate(email)
     }
   },
   computed: {

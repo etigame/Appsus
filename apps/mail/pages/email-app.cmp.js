@@ -22,7 +22,7 @@ export default {
         <section className="email-app-main flex">
             <section className="email-app-aside flex-column">
                 <router-link to="/email/inbox/compose">
-                    <button class="btn-compose">
+                    <button class="btn-compose flex justify-between">
                         <img :src="setSvg('compose')" alt="compose-icon" />
                         <p>Compose</p>
                     </button>
@@ -30,7 +30,7 @@ export default {
 
                 <email-folder-list :unreadCount="unreadCount" />
             </section>
-            <router-view v-if="emailsToShow" :emails="emailsToShow" />
+            <router-view v-if="emails" :emails="emailsToShow" />
               <!-- the router view contains: email-list or email-details  -->
                 <!-- <email-list 
                 @remove="removeEmail"
@@ -51,7 +51,13 @@ export default {
     return {
       emails: null,
       selectedEmail: null,
-      filterBy: null,
+      filterBy: {
+        status: 'inbox',
+        keyword: '',
+        isRead: '',
+        isStarred: '',
+        isImportant: '',
+      },
       listIsShown: true,
       sortDirection: 1,
     }
@@ -70,20 +76,14 @@ export default {
         this.emails = emails
       })
     },
-    setFilter(filterBy) {
-      // console.log(filterBy);
-      // this model of "if"s allows to get different filters together (this and also this)
-
-      // filterBy={
-      //   keyword:'s',
-      //   isRead:true,
-
-      // }
-      // this.filter={...filterBy}
-      this.filterBy = filterBy
-      // if(filterBy.keyword) this.filterBy ={...this.filterBy, filterBy}
-
-      // if(filterBy.isStared)
+    setFilter({keyword, isRead, status, isStarred = false, isImportant = false}) {
+      this.filterBy.isStarred = isStarred
+      this.filterBy.isImportant = isImportant
+      if(isRead !== undefined)this.filterBy.isRead = isRead
+      if(keyword !== undefined) this.filterBy.keyword = keyword
+      if(status !== undefined) this.filterBy.status = status
+      
+      // this.filterBy = filterBy
     },
     setSvg(iconName) {
       return iconsService.getSvg(iconName)
@@ -121,23 +121,41 @@ export default {
   computed: {
     emailsToShow() {
       // - won't happen ever because filterBy exists
-      if (!this.filterBy) return this.emails
+      // if (!this.filterBy) return this.emails
       // don't filter until get all emails from server
-      const { keyword, isRead } = this.filterBy
-
-      console.log(this.filterBy)
+      // if(!this.emails) return []
+      const { keyword, isRead, status, isImportant, isStarred } = this.filterBy
+      console.log(status);
+      let emails = this.emails
+      console.log(isStarred, isImportant)
 
       const regex = new RegExp(keyword, 'i')
-      let emails = this.emails.filter(
-        (email) =>
-          regex.test(email.from) ||
-          regex.test(email.to) ||
-          regex.test(email.subject) ||
-          regex.test(email.body)
-      )
+      if(keyword){
+        emails = emails.filter(
+          (email) =>
+            regex.test(email.from) ||
+            regex.test(email.to) ||
+            regex.test(email.subject) ||
+            regex.test(email.body)
+        )
+      }
+      
       if (isRead !== '') {
         emails = emails.filter((email) => email.isRead === isRead)
       }
+
+      if(status){
+        emails = emails.filter((email) => email.status === status)
+      }
+      
+      if(isStarred){
+        emails = emails.filter((email) => email.isStarred)
+      }
+
+      if(isImportant){
+        emails = emails.filter((email) => email.isImportant)
+      }
+
       return emails
 
       // if(keyword) {
