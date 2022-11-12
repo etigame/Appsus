@@ -1,0 +1,29 @@
+/*keep-tools*/
+
+.keep-tools {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  opacity: 0;
+}
+
+.keep-tools:hover {
+  opacity: 1;
+}
+
+.keep-tools button {
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 6px;
+  border: none;
+  cursor: pointer;
+  background: inherit;
+}
+
+.keep-tools button:hover {
+  border-radius: 50%;
+}
+
+.box {
+  padding: 10px;
+}

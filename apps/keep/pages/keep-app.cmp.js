@@ -54,7 +54,6 @@ export default {
       keepService.save(keep).then((keep) => this.keeps.splice(keepIdx, 1, keep))
     },
     changeKeepColor(color, keepId) {
-      console.log('here')
       const keepIdx = this.keeps.findIndex((keep) => keep.id === keepId)
       this.keeps[keepIdx].style.backgroundColor = color
       keepService
@@ -80,7 +79,6 @@ export default {
       const pinnedKeeps = keeps.filter((keep) => keep.isPinned)
       if (!pinnedKeeps) return
       this.pinned = pinnedKeeps
-      console.log(this.pinned)
     },
   },
   computed: {

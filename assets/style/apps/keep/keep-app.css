@@ -129,24 +129,3 @@
 .keep-add button:hover {
   background-color: rgba(41, 41, 41, 0.081);
 }
-
-/*keep-tools*/
-
-.keep-tools {
-  display: flex;
-  align-items: stretch;
-  background-color: lightgray;
-  width: 100%;
-}
-
-.keep-tools button {
-  background-size: contain;
-  background-repeat: no-repeat;
-  padding: 6px;
-  border: none;
-  cursor: pointer;
-}
-
-.box {
-  padding: 10px;
-}
