@@ -17,7 +17,7 @@ export default {
           </router-link>
 
           <router-link to="/email/inbox">
-            <li @click="filter('starred')">
+            <li @click="filter('starred')" :class="{active: isActive}">
             <button className="btn-starred">
                 <img :src="setSvg('starBefore')" alt="star-icon" />
             </button>
@@ -95,4 +95,9 @@ export default {
       return iconsService.getSvg(iconName)
     },
   },
+  computed: {
+    isActive() {
+      
+    }
+  }
 }
