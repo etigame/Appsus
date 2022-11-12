@@ -1,6 +1,7 @@
 .email-list {
     overflow-y: scroll;
     height: 100%;
+    grid-area: list;
 }
 
 .email-list-sort-bar{

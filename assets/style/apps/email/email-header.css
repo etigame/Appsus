@@ -1,3 +1,4 @@
 .email-header {
     height: 15vh;
+    grid-area: header;
 }
