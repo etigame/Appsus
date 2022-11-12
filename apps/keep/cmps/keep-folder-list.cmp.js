@@ -1,10 +1,7 @@
 export default {
   template: `<section class= "keep-folder-list">
             <ul>
-                <li>
-                Text 
-            </li>
-            <li>
+            <li @click="filterBy('keep-img')">
                 Images 
             </li>
             <li>
@@ -16,4 +13,9 @@ export default {
         </ul>
 
         </section>`,
+  methods: {
+    filterBy(filter) {
+      this.$emit('filtered', filter)
+    },
+  },
 }

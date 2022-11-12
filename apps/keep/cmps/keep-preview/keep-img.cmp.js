@@ -1,12 +1,20 @@
 export default {
-  props: ['info'],
-  template: `<article @click="isEditable" class="keep-img-container">
-                <img :src="info.url" >
-                <h2>{{ info.title }}</h2>
+  props: ['keep'],
+  template: `<article  class="keep-img-container" :style="keep.style">
+                <img :src="keep.info.url" >
+                <h2  :contenteditable="true" @blur="getInput($event,'title')">{{ keep.info.title }}</h2>
             </article>`,
   methods: {
-    isEditable() {
-      this.$emit('edit', true)
+    getInput({ target }, type) {
+      switch (type) {
+        case 'title':
+          this.keep.info.title = target.innerText
+          break
+
+        default:
+          break
+      }
+      this.$emit('edited', this.keep)
     },
   },
 }

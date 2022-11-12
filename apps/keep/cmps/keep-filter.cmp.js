@@ -1,6 +1,10 @@
 export default {
-  template: ` <section className="keep-filter">
-    <h1>keep filter</h1>
-  </section>
-  `,
+  name: 'keep-filter',
+  props: ['keywords'],
+  template: ` <section className="keep-filter"></section>`,
+  data() {
+    return {
+      filterBy: { keywords: null },
+    }
+  },
 }
