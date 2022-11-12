@@ -25,12 +25,16 @@
 
 .email-preview .actions {
     position: absolute;
-    /* display: none; */
+    opacity: 0;
     background: inherit;
     top: 0;
     bottom: 0;
     right: 0;
     padding-right: 30px;
+}
+
+.email-preview:hover > .actions {
+    opacity: 1;
 }
 
 .sent-time {

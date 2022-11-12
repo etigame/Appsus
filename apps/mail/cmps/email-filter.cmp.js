@@ -1,4 +1,4 @@
-import { eventBus } from '../../../services/event-bus.service.js'
+import { eventBus, emitFilter } from '../../../services/event-bus.service.js'
 import { iconsService } from '../../../services/icons-service.js'
 
 export default {
@@ -14,12 +14,18 @@ export default {
             v-model="filterBy.keyword" 
             ref="filter"
             placeholder="Search mail" />
+            <select v-model="filterBy.isRead" @change="filter" placeholder="All">
+              <option value="">All</option>
+              <option :value="true">Read</option>
+              <option :value="false">Unread</option>
+            </select>
     </section>
     `,
     data() {
       return {
         filterBy: {
-          keyword: ''
+          keyword: '',
+          isRead: ''
         }
       }
     },
@@ -28,10 +34,18 @@ export default {
   },
   methods: {
     filter() {
-      eventBus.emit('filter', {...this.filterBy})
+      emitFilter({...this.filterBy})
     },
     setSvg(iconName) {
       return iconsService.getSvg(iconName)
     },
   },
+  // watch: {
+  //   filterBy:{
+  //       handler(){
+  //           console.log('Something changed')
+  //       },
+  //       deep: true
+  //   }
+
 }

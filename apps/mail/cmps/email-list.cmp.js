@@ -7,9 +7,14 @@ export default {
   template: `
         <router-view/>
         <section v-if="isListShown" class="email-list">
+          <section class="email-list-sort-bar flex justify-between">
+            <div className="sort-from" @click="sortList">From</div>
+            <div className="sort-subject" @click="sortList">Subject</div>
+            <div className="sort-date" @click="sortList">Date</div>
+          </section>
             <ul class="clean-list">
                 <li v-for="email in emails" :key="email.id">
-                    <email-preview :email="email" @click="updateUnread(email)"/>
+                    <email-preview :email="email"/>
                 </li>
             </ul>
         </section>
@@ -20,10 +25,10 @@ export default {
     }
     },
   methods: {
-    updateUnread(email) {
-      if (!email.isRead) this.$emit('updateUnread', email)
-      else return
+    sortList() {
+      console.log(123);
     }
+
   },
   computed: {
     emailId() {

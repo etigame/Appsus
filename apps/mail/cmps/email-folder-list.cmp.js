@@ -8,13 +8,19 @@ export default {
               Inbox <span> {{unreadCount}} </span>
             </li>
             <li>
+              Starred
+            </li>
+            <li>
+              Important
+            </li>
+            <li>
               Sent 
             </li>
             <li>
-              Trash 
+              Drafts 
             </li>
             <li>
-              Draft 
+              Trash 
             </li>
           </ul>
     </section>`,

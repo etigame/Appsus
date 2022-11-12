@@ -30,8 +30,7 @@ export default {
 
                 <email-folder-list :unreadCount="unreadCount" />
             </section>
-            <router-view 
-            :emails="emailsToShow" />
+            <router-view v-if="emailsToShow" :emails="emailsToShow" />
               <!-- the router view contains: email-list or email-details  -->
                 <!-- <email-list 
                 @remove="removeEmail"
@@ -52,14 +51,12 @@ export default {
     return {
       emails: null,
       selectedEmail: null,
-      filterBy: {
-        keyword: ''
-      },
-      listIsShown: true
+      filterBy: null,
+      listIsShown: true,
     }
   },
   created() {
-    eventBus.on('filter', this.setFilter)
+    eventBus.on('filtered', this.setFilter)
     eventBus.on('updated', this.updateEmail)
     eventBus.on('sent', this.sendEmail)
     eventBus.on('removed', this.removeEmail)
@@ -72,62 +69,77 @@ export default {
       })
     },
     setFilter(filterBy) {
-      if(filterBy.keyword) this.filterBy.keyword = filterBy.keyword
+      // console.log(filterBy);
+      // this model of "if"s allows to get different filters together (this and also this)
+
+      // filterBy={
+      //   keyword:'s',
+      //   isRead:true,
+
+      // }
+      // this.filter={...filterBy}
+      this.filterBy = filterBy
+      // if(filterBy.keyword) this.filterBy ={...this.filterBy, filterBy}
+
       // if(filterBy.isStared)
-      // this.filterBy = filterBy
-    },
-    selectEmail(emailId) {
-      emailService.get(emailId).then((email) => (this.selectedEmail = email))
     },
     setSvg(iconName) {
       return iconsService.getSvg(iconName)
     },
-    updateEmail(email){ // update for change unread, sent email, stared etc..
-      emailService.save(email).then(email => {
+    updateEmail(email) {
+      // update for change unread, sent email, stared etc..
+      emailService.save(email).then((email) => {
         const emailId = email.id
         const idx = this.emails.findIndex((email) => email.id === emailId)
         this.emails.splice(idx, 1, email)
       })
     },
-    sendEmail(email){
+    sendEmail(email) {
       this.emails.unshift(email)
     },
-    removeEmail(emailId){
-      emailService.remove(emailId)
-      .then(() => {
-        const idx = this.emails.findIndex(email => email.id === emailId)
-        this.emails.splice(idx, 1)
-        showSuccessMsg(`Conversation moved to Trash`)
-      })
+    removeEmail(emailId) {
+      emailService
+        .remove(emailId)
+        .then(() => {
+          const idx = this.emails.findIndex((email) => email.id === emailId)
+          this.emails.splice(idx, 1)
+          showSuccessMsg(`Conversation moved to Trash`)
+        })
         .catch((err) => {
           console.log('OOPS', err)
           showErrorMsg('Cannot delete massege')
         })
-    }
-    // updateUnread(email) {
-    //   email.isRead = true
-    //   emailService.save(email).then((email) => {
-    //     // this.getEmails() // one option
-    //     // better option
-    //     const emailId = email.id
-    //     const idx = this.emails.findIndex((email) => email.id === emailId)
-    //     this.emails.splice(idx, 1, email)
-    //   })
-    // },
+    },
   },
   computed: {
     emailsToShow() {
-      // if (!this.filterBy) return this.emails
-      if(!this.emails) return null
-      let emails = this.emails
-      const { keyword } = this.filterBy
-      if(keyword) {
-        const regex = new RegExp(keyword, 'i')
-        emails =  this.emails.filter((email) => {
-          regex.test(email.from) || regex.test(email.to) || regex.test(email.subject) || regex.test(email.body)
-        })
+      // - won't happen ever because filterBy exists
+      if (!this.filterBy) return this.emails
+      // don't filter until get all emails from server
+      const { keyword, isRead } = this.filterBy
+
+      console.log(this.filterBy)
+
+      const regex = new RegExp(keyword, 'i')
+      let emails = this.emails.filter(
+        (email) =>
+          regex.test(email.from) ||
+          regex.test(email.to) ||
+          regex.test(email.subject) ||
+          regex.test(email.body)
+      )
+      if (isRead !== '') {
+        emails = emails.filter(email => email.isRead === isRead)
       }
       return emails
+
+      // if(keyword) {
+      //   const regex = new RegExp(keyword, 'i')
+      //   this.emails= this.emails = this.emails.filter((email) => {
+      //     regex.test(email.from) || regex.test(email.to) || regex.test(email.subject) || regex.test(email.body)
+      //   })
+      // }
+      // if(unread){} etc..
     },
     unreadCount() {
       if (!this.emails) return ''

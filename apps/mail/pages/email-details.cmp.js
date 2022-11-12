@@ -48,6 +48,7 @@ export default {
   },
   watch: {
     emailId() {
+      if (!this.emailId) return
       this.loadEmail()
     },
   },

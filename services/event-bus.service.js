@@ -33,6 +33,8 @@ export function showErrorMsg(txt) {
     showUserMsg({txt, type: 'error'})
 }
 
+
+
 export function emitUpdate(entity){
     eventBus.emit('updated', entity)
 }
@@ -43,4 +45,7 @@ export function emitSend(entity) {
 
 export function emitRemove(entityId){
     eventBus.emit('removed', entityId)
+}
+export function emitFilter(filterBy) {
+    eventBus.emit('filtered', filterBy)
 }
