@@ -13,8 +13,11 @@ export default {
    <div class= "keep-lists-container">
       <keep-add @saved="addKeep"/>
       <keep-folder-list @filtered="filter" />
-      <keep-list @removed="removeKeep" @updated="updateKeep" @colorChanged="changeKeepColor"  :keeps= "keepsToDisplay"  />
-   </div>
+      <section class='current-lists'> 
+        <keep-list  childClass="keep-list-pinned"  @updated="updateKeep" @colorChanged="changeKeepColor" :keeps="pinned" />
+        <keep-list  @removed="removeKeep" @updated="updateKeep" @colorChanged="changeKeepColor" @pinned="addToPinned" childClass="keep-list"  :keeps= "keepsToDisplay"  />
+      </section>
+    </div>
  </section>
  `,
   data() {
@@ -25,9 +28,15 @@ export default {
     }
   },
   created() {
-    keepService.query().then((keeps) => {
-      this.keeps = keeps
-    })
+    keepService
+      .query()
+      .then((keeps) => {
+        this.keeps = keeps
+        return keeps
+      })
+      .then((keeps) => {
+        this.getPinned(keeps)
+      })
   },
   methods: {
     addKeep(info) {
@@ -60,13 +69,23 @@ export default {
       this.filterBy.type = type
     },
 
-    // addToPinned(keepId) {
-    //   const idx = this.keeps.findIndex((keep) => keep.id === keepId)
-    //   const keep= this.keeps.splice(idx, 1)
+    addToPinned(keepId) {
+      const idx = this.keeps.findIndex((keep) => keep.id === keepId)
+      const keep = this.keeps[idx]
+      this.keeps.splice(idx, 1)
+      keep.isPinned = 'true'
+      keepService.save(keep).then((keep) => this.pinned.push(keep))
+    },
+    getPinned(keeps) {
+      const pinnedKeeps = keeps.filter((keep) => keep.isPinned)
+      if (!pinnedKeeps) return
+      this.pinned = pinnedKeeps
+      console.log(this.pinned)
+    },
   },
   computed: {
     keepsToDisplay() {
-      if (!this.filterBy.keywords && !this.filterBy.type) return this.keeps
+      if (!this.filterBy.keywords) return this.keeps
       let keeps = this.keeps
       const regex = new RegExp(this.filterBy.keywords, 'i')
       keeps = keeps.filter(

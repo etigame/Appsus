@@ -1,6 +1,6 @@
 export default {
   template: `
-  <section>
+  <section class='flex'>
   <button class="color-palette" @click="isOpen=!isOpen">🎨</button>
   <div class="box" v-if="isOpen">
     <button v-for="color in colors"  :style="getStyleObject(color)" @click="changeColor(color)"></button>

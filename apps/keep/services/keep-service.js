@@ -38,7 +38,7 @@ function getEmptyKeep() {
   return {
     id: utilService.makeId(),
     type: 'keep-txt',
-    isPinned: true,
+    isPinned: false,
     info: {
       title: null,
       txt: null,

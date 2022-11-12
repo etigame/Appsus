@@ -5,11 +5,11 @@ import keepColorPalette from './keep-color-palette.cmp.js'
 
 export default {
   name: 'keep-list',
-  props: ['keeps'],
+  props: ['keeps', 'childClass'],
   // emits: ['removed', 'updated', 'colorChanged'],
   template: ` 
         
-          <section  className="keep-list" >
+          <section :className="childClass">
                 <div v-for="keep in keeps" :key="keep.id" >
                 <component :is= "keep.type" :keep="keep"  @edited="updateKeep"></component>
                 <div class="keep-tools">
@@ -17,13 +17,12 @@ export default {
                       <img :src="setSvg('trash')" />
                   </button> 
                   <keep-color-palette @color="changeKeepColor($event,keep.id)" />
-                  <button @click="pinKeep(keep.id)">📌</button>
+                  <button v-if="!keep.isPinned"  @click="pinKeep(keep.id)">📌</button>
                 </div>
             </div>  
           
         </section>
     `,
-
   methods: {
     setSvg(iconName) {
       return iconsService.getSvg(iconName)

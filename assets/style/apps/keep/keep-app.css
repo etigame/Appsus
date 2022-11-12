@@ -16,6 +16,7 @@
 .keep-lists-container {
   display: grid;
   grid-template-columns: 20% 80%;
+  grid-template-rows: 20% 70%;
 }
 
 /*header*/
@@ -25,16 +26,38 @@
   height: 45px;
 }
 
+/*keep-lists*/
+.current-lists {
+  grid-column: 2;
+}
+
 /*keep-list*/
 
 .keep-list {
-  grid-column: 2;
   column-count: 4;
   column-gap: 1.5rem;
   max-width: 100%;
 }
 
 .keep-list > * {
+  border: 1px solid var(--clr4);
+  break-inside: avoid;
+  margin-block-end: 1rem;
+  width: 100%;
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+/*keep-pinned-list*/
+
+.keep-list-pinned {
+  column-count: 4;
+  column-gap: 1.5rem;
+  max-width: 100%;
+  margin-bottom: 150px;
+}
+
+.keep-list-pinned > * {
   border: 1px solid var(--clr4);
   break-inside: avoid;
   margin-block-end: 1rem;
@@ -118,7 +141,6 @@
 
 .keep-tools button {
   background-size: contain;
-
   background-repeat: no-repeat;
   padding: 6px;
   border: none;
@@ -126,7 +148,5 @@
 }
 
 .box {
-  position: relative;
-  z-index: 10;
   padding: 10px;
 }

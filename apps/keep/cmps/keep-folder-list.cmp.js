@@ -1,6 +1,10 @@
 export default {
   template: `<section class= "keep-folder-list">
             <ul>
+
+            <li @click="filterBy">
+                All 
+            </li>
             <li @click="filterBy('keep-img')">
                 Images 
             </li>
