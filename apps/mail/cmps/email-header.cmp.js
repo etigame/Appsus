@@ -8,9 +8,18 @@ export default {
         <header class="email-header flex justify-between">
             <img src="assets/images/koogle.png" alt="logo" />
             <email-filter />
-            <button>
-                <span v-html="setSvg('koogleApps')"></span>
-            </button>
+            <section class="route-btns">
+                <router-link to="/email/inbox">
+                    <button class="email-btn">
+                      <img :src="setSvg('gmailImg')" alt="email-icon" />
+                    </button>
+                </router-link>
+                <router-link to="/keep">
+                    <button class="keep-btn">
+                      <img :src="setSvg('keepImg')" alt="keep-icon" />
+                    </button>
+                </router-link>
+            </section>
         </header>
     `,
   methods: {
