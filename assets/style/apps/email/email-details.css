@@ -1,5 +1,36 @@
+.email-details {
+  background-color: #fff;
+  border-radius: 16px;
+  margin-inline-end: 10px;
+}
+
 .email-details button {
-    cursor: pointer;
-    background: inherit;
-    border: none;
+  cursor: pointer;
+  background: inherit;
+  border: none;
+  padding: 5px;
+}
+.email-details button:hover {
+    border-radius: 50%;
+    background-color: var(--clr4);
+}
+
+.email-details .actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  margin: 10px;
+}
+
+.email-details .content {
+  margin-inline-start: 10px;
+}
+
+.email-details h1 {
+    font-size: 1.25rem;
+}
+
+.email-details p {
+    font-size: 1rem;
+    margin-block-end: 10px;
 }

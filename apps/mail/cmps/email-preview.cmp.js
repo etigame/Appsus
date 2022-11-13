@@ -8,18 +8,28 @@ export default {
   props: ['email'],
   template: `
         <article class="email-preview flex align-center" :class="previewStyle">
+          <section className="btns-start">
             <button className="btn-star"  @click="toggleStarred">
                 <img :src="email.isStarred ? setSvg('starActive') : setSvg('starBefore')" alt="star-icon" />
             </button>
             <button className="btn-important" @click="toggleImportant">
                 <img :src="email.isImportant ? setSvg('importantActive') : setSvg('importantBefore')" alt="important-before-icon" />
             </button>
-            <router-link :to="'/email/'+email.id" class="flex">   
-                <p className="from">{{ email.from }}</p>
-                <p className="subject">{{ email.subject}}</p>
-                <p className="sent-time">{{ displaySentTime }}</p>
-            </router-link>
-            <section class="actions clean-list flex justify-center align-center">
+          </section>
+
+          <router-link :to="'/email/'+email.id" class="flex justify-between">
+            <div className="from">
+              <p>{{ email.from }}</p>
+            </div>  
+            <div className="subject">
+              <p>{{ email.subject}}</p>
+            </div> 
+            <div className="sent-time">
+              <p>{{ displaySentTime }}</p>
+            </div>
+          </router-link>
+          
+          <section class="actions clean-list flex justify-center align-center">
               <button class="delete-btn" @click="remove(email.id)">
                 <img :src="setSvg('trash')" alt="trash-icon" />
               </button>

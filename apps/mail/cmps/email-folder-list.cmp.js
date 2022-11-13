@@ -12,12 +12,12 @@ export default {
             <button className="btn-inbox">
                 <img :src="setSvg('inbox')" alt="inbox-icon" />
             </button>
-              Inbox <span> {{unreadCount}} </span>
+              Inbox <span class="count-unread"> {{unreadCount}} </span>
             </li>
           </router-link>
 
           <router-link to="/email/inbox">
-            <li @click="filter('starred')" :class="{active: isActive}">
+            <li @click="filter('starred')">
             <button className="btn-starred">
                 <img :src="setSvg('starBefore')" alt="star-icon" />
             </button>
@@ -95,9 +95,4 @@ export default {
       return iconsService.getSvg(iconName)
     },
   },
-  computed: {
-    isActive() {
-      
-    }
-  }
 }

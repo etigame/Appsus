@@ -5,8 +5,12 @@
   .email-folder-list li {
     display: flex;
     align-items: center;
-    padding: 0 8px 0 26px;
+    padding: 3px 8px 3px 26px;
     cursor: pointer;
+  }
+
+  .email-folder-list li .count-unread {
+    padding-inline-start: 50px;
   }
   
   .email-folder-list li:hover {
@@ -15,12 +19,9 @@
     border-end-end-radius: 2rem;
   }
 
-  .email-folder-list li.active {
-    background-color: rgb(206, 225, 231);
-  }
-
   .email-folder-list li button {
     background: inherit;
     border: none;
+    margin-inline-end: 25px;
   }
   

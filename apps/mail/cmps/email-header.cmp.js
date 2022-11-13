@@ -6,7 +6,7 @@ export default {
   template: `
   
         <header class="email-header flex justify-between">
-            <h1>Logo</h1>
+            <img src="assets/images/koogle.png" alt="logo" />
             <email-filter />
             <button>
                 <span v-html="setSvg('koogleApps')"></span>
