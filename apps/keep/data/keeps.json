@@ -29,7 +29,7 @@
     "isPinned": false,
     "info": {
       "title": "The Road Not Taken",
-      "txt": "Two roads diverged in a yellow wood,And sorry I could not travel bothAnd be one traveler, long I stoodAnd looked down one as far as I couldTo where it bent in the undergrowth;Then took the other, as just as fair,And having perhaps the better claim,Because it was grassy and wanted wear;Though as for that the passing thereHad worn them really about the same,And both that morning equally layIn leaves no step had trodden black.Oh, I kept the first for another day!Yet knowing how way leads on to way,I doubted if I should ever come back.I shall be telling this with a sighSomewhere ages and ages hence:Two roads diverged in a wood, and I—I took the one less traveled by,And that has made all the difference."
+      "txt": "Two roads diverged in a yellow wood,And sorry I could not travel bothAnd be one traveler, long I stoodAnd looked down one as far as I couldTo where it bent in the undergrowth;Then took the other, as just as fair,And having perhaps the better claim,Because it was grassy and wanted wear;Though as for that the passing thereHad worn them really about the same...."
     },
     "style": {
       "backgroundColor": "white"
@@ -50,7 +50,7 @@
   {
     "id": "k105",
     "type": "keep-img",
-    "isPinned": false,
+    "isPinned": true,
     "info": {
       "url": "https://pbs.twimg.com/media/FevEd62XEAMVxka?format=jpg&name=small",
       "title": "Generative Art 1"

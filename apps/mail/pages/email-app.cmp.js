@@ -73,13 +73,19 @@ export default {
         this.emails = emails
       })
     },
-    setFilter({keyword, isRead, status, isStarred = false, isImportant = false}) {
+    setFilter({
+      keyword,
+      isRead,
+      status,
+      isStarred = false,
+      isImportant = false,
+    }) {
       this.filterBy.isStarred = isStarred
       this.filterBy.isImportant = isImportant
-      if(isRead !== undefined)this.filterBy.isRead = isRead
-      if(keyword !== undefined) this.filterBy.keyword = keyword
-      if(status !== undefined) this.filterBy.status = status
-      
+      if (isRead !== undefined) this.filterBy.isRead = isRead
+      if (keyword !== undefined) this.filterBy.keyword = keyword
+      if (status !== undefined) this.filterBy.status = status
+
       // this.filterBy = filterBy
     },
     setSvg(iconName) {
@@ -110,9 +116,16 @@ export default {
         })
     },
     setEmailsSort(sortBy) {
-      if (sortBy === 'from') this.emails.sort((e1, e2) => e1.from.localeCompare(e2.from) * this.sortDirection)
-      if (sortBy === 'subject') this.emails.sort((e1, e2) => e1.subject.localeCompare(e2.subject) * this.sortDirection)
-      if (sortBy === 'sentAt') this.emails.sort((e1, e2) => e1.sentAt - e2.sentAt)
+      if (sortBy === 'from')
+        this.emails.sort(
+          (e1, e2) => e1.from.localeCompare(e2.from) * this.sortDirection
+        )
+      if (sortBy === 'subject')
+        this.emails.sort(
+          (e1, e2) => e1.subject.localeCompare(e2.subject) * this.sortDirection
+        )
+      if (sortBy === 'sentAt')
+        this.emails.sort((e1, e2) => e1.sentAt - e2.sentAt)
     },
   },
   computed: {
@@ -122,12 +135,12 @@ export default {
       // don't filter until get all emails from server
       // if(!this.emails) return []
       const { keyword, isRead, status, isImportant, isStarred } = this.filterBy
-      console.log(status);
+      console.log(status)
       let emails = this.emails
       console.log(isStarred, isImportant)
 
       const regex = new RegExp(keyword, 'i')
-      if(keyword){
+      if (keyword) {
         emails = emails.filter(
           (email) =>
             regex.test(email.from) ||
@@ -136,20 +149,20 @@ export default {
             regex.test(email.body)
         )
       }
-      
+
       if (isRead !== '') {
         emails = emails.filter((email) => email.isRead === isRead)
       }
 
-      if(status){
+      if (status) {
         emails = emails.filter((email) => email.status === status)
       }
-      
-      if(isStarred){
+
+      if (isStarred) {
         emails = emails.filter((email) => email.isStarred)
       }
 
-      if(isImportant){
+      if (isImportant) {
         emails = emails.filter((email) => email.isImportant)
       }
 

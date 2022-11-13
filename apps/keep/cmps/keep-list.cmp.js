@@ -17,7 +17,9 @@ export default {
                       <img :src="setSvg('trash')" />
                   </button> 
                   <keep-color-palette @color="changeKeepColor($event,keep.id)" />
-                  <button v-if="!keep.isPinned"  @click="pinKeep(keep.id)">📌</button>
+                  <button>✉
+                    
+                  </button>
                 </div>
             </div>  
           

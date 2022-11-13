@@ -9,34 +9,23 @@ export default {
   template: ` 
   <section className="keep-layout" >
    <keep-header @getKeywords="searchKeywords"  />
-
    <div class= "keep-lists-container">
       <keep-add @saved="addKeep"/>
       <keep-folder-list @filtered="filter" />
-      <section class='current-lists'> 
-        <keep-list  childClass="keep-list-pinned"  @updated="updateKeep" @colorChanged="changeKeepColor" :keeps="pinned" />
-        <keep-list  @removed="removeKeep" @updated="updateKeep" @colorChanged="changeKeepColor" @pinned="addToPinned" childClass="keep-list"  :keeps= "keepsToDisplay"  />
-      </section>
+      <keep-list  childClass="keep-list"  @removed="removeKeep" @updated="updateKeep" @colorChanged="changeKeepColor" :keeps= "keepsToDisplay"  />
     </div>
  </section>
  `,
   data() {
     return {
       keeps: null,
-      pinned: null,
-      filterBy: { keywords: null, type: null },
+      filterBy: { keywords: '', type: null },
     }
   },
   created() {
-    keepService
-      .query()
-      .then((keeps) => {
-        this.keeps = keeps
-        return keeps
-      })
-      .then((keeps) => {
-        this.getPinned(keeps)
-      })
+    keepService.query().then((keeps) => {
+      this.keeps = keeps
+    })
   },
   methods: {
     addKeep(info) {
@@ -67,38 +56,24 @@ export default {
     filter(type) {
       this.filterBy.type = type
     },
-
-    addToPinned(keepId) {
-      const idx = this.keeps.findIndex((keep) => keep.id === keepId)
-      const keep = this.keeps[idx]
-      this.keeps.splice(idx, 1)
-      keep.isPinned = 'true'
-      keepService.save(keep).then((keep) => this.pinned.push(keep))
-    },
-    getPinned(keeps) {
-      const pinnedKeeps = keeps.filter((keep) => keep.isPinned)
-      if (!pinnedKeeps) return
-      this.pinned = pinnedKeeps
-    },
   },
   computed: {
     keepsToDisplay() {
-      if (!this.filterBy.keywords) return this.keeps
       let keeps = this.keeps
+      if (!this.filterBy.keywords) return keeps
       const regex = new RegExp(this.filterBy.keywords, 'i')
-      keeps = keeps.filter(
+      let filteredKeeps = keeps.filter(
         (keep) => regex.test(keep.info.title) || regex.test(keep.info.txt)
       )
-      if (!keeps.length) keeps = this.keeps
-
-      let filteredKeeps = keeps.filter(
+      if (!filteredKeeps) return keeps
+      if (!this.filterBy.type) return filteredKeeps
+      filteredKeeps = filteredKeeps.filter(
         (keep) => keep.type === this.filterBy.type
       )
-      if (!filteredKeeps.length) return keeps
+
       return filteredKeeps
     },
   },
-
   components: {
     keepHeader,
     keepList,

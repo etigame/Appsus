@@ -23,7 +23,6 @@ export default {
   methods: {
     getStyleObject(color) {
       const color2 = color
-      console.log(color)
       return { backgroundColor: color2 }
     },
     changeColor(color) {

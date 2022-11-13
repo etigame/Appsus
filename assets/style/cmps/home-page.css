@@ -1,0 +1,11 @@
+.home-page {
+  font-size: 2rem;
+}
+
+.home-page > * {
+  display: block;
+}
+
+.home-page > .link:hover {
+  color: red;
+}

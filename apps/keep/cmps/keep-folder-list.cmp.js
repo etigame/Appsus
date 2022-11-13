@@ -1,7 +1,6 @@
 export default {
   template: `<section class= "keep-folder-list">
             <ul>
-
             <li @click="filterBy">
                 All 
             </li>
@@ -15,7 +14,6 @@ export default {
                 Checklists 
             </li>
         </ul>
-
         </section>`,
   methods: {
     filterBy(filter) {
