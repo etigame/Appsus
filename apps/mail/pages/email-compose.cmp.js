@@ -52,7 +52,7 @@ export default {
             .then(email => {
                 showSuccessMsg(`Message to ${email.to} sent`)
                 this.$router.back()
-                emitSend(email)
+                emitUpdate(email)
                 // this.$emit('addEmail', email)
             })
             .catch(err => {
