@@ -1,4 +1,4 @@
-import { iconsService } from '../services/icons-service'
+import { iconsService } from '../services/icons-service.js'
 
 export default {
   template: `
