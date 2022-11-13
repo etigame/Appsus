@@ -13,7 +13,7 @@ export default {
             <div className="sort-subject" @click="sortList('subject')">Subject</div>
             <div className="sort-date" @click="sortList('sentAt')">Date</div>
           </section>
-            <ul class="clean-list">
+            <ul class="clean-list scroll">
                 <li v-for="email in emails" :key="email.id">
                     <email-preview :email="email"/>
                 </li>

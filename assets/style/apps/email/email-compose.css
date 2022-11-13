@@ -1,17 +1,16 @@
 .email-compose {
     position: absolute;
     bottom: 0;
-    right: 0;
-    height: 70vh;
+    right: 25px;
     width: 40%;
     font-size: 0.875rem;
-    border-radius: 12px 12px 0px 0px;
     z-index: 10;
 }
 
 .email-compose .header {
-background-color: var(--clr2);
-padding: 10px;
+    background-color: var(--clr3);
+    padding: 10px;
+    border-radius: 12px 12px 0px 0px;
 }
 
 .email-compose .footer {
@@ -19,15 +18,31 @@ background-color: var(--clr1);
 padding: 10px;
 }
 
-.email-compose input {
+.email-compose input, .email-compose textarea{
     border: none;
     font-size: 0.875rem;
     font-weight: 100;
     box-shadow: inset 0 -1px 0 0 rgba(100,121,143,0.122);
+    padding: 10px;
 }
 
 .email-compose content-container {
     padding: 0 16px;
 }
 
+.email-compose button {
+    border: none;
+    cursor: pointer;
+}
 
+.email-compose button:not(.btn-send) {
+    background: inherit;
+}
+
+.btn-send {
+    background-color: #0b57d0;
+    color: white;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 20px;
+}

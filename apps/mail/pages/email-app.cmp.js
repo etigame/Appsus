@@ -95,7 +95,9 @@ export default {
       // update for change unread, sent email, stared etc..
       emailService.save(email).then((email) => {
         const emailId = email.id
+        console.log(emailId);
         const idx = this.emails.findIndex((email) => email.id === emailId)
+        console.log(idx);
         this.emails.splice(idx, 1, email)
       })
     },

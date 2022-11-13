@@ -1,5 +1,34 @@
-.sprite{
+/* .sprite{
     height: 60px;
     width: 60px;
     background-image: url(https://ssl.gstatic.com/gb/images/p1_d9c8f691.png);
+} */
+
+.email-filter {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    margin: 8px 0;
+    background-color: rgb(213, 247, 224);
+    width: 600px;
 }
+
+.email-filter span {
+    margin: 0 20px;
+}
+
+.email-filter select {
+    margin-inline-start: 200px;
+    margin-inline-end: 20px;
+}
+
+.email-filter input, .email-filter select  {
+    border: none;
+    background: inherit;
+}
+
+.email-filter input {
+    padding: 10px;
+    font-weight: 600;
+}
+

@@ -44,12 +44,10 @@ function getEmptyEmail() {
   return {
   subject: '',
   body: '',
+  status: 'sent',
   isRead: true,
-  isInbox: false,
   isStarred: false,
   isImportant: false,
-  isDraft: false,
-  isTrash: false,
   sentAt: Date.now(),
   from: 'etironi100@appsus.com',
   to: ''
