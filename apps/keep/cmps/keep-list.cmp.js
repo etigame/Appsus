@@ -17,9 +17,6 @@ export default {
                       <img :src="setSvg('trash')" />
                   </button> 
                   <keep-color-palette @color="changeKeepColor($event,keep.id)" />
-                  <button>✉
-                    
-                  </button>
                 </div>
             </div>  
           
