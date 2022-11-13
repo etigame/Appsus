@@ -1,6 +1,9 @@
 .email-header {
-    position: relative;
     grid-area: header;
+}
+
+.img-logo {
+    height: 10vh;
 }
 
 .email-header .route-btns {

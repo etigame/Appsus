@@ -6,7 +6,9 @@ export default {
   template: `
   
         <header class="email-header flex justify-between">
-            <img src="assets/images/koogle.png" alt="logo" />
+        <router-link to="/">
+            <img class ="img-logo" src="assets/images/koogle.png" alt="logo" />
+        </router-link>
             <email-filter />
             <section class="route-btns">
                 <router-link to="/email/inbox">

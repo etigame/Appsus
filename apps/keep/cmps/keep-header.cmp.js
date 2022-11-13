@@ -3,7 +3,9 @@ export default {
   name: 'keep-header',
   props: ['keeps'],
   template: `<header class="keep-header full">
-    <img src="assets/images/koogle.png" width="250" style="margin-top: 10px"/>
+    <router-link to="/">
+      <img src="assets/images/koogle.png" width="250" style="margin-top: 10px"/>
+    </router-link>
     <input v-model="keywords" @input="getKeywords"  placeholder="Search note..." type="text">
     <section class="route-btns">
                 <router-link to="/email/inbox">
