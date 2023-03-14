@@ -24,6 +24,8 @@ KOOGLE is a combination of two Google applications in one - Gmail & Google Keep 
 
 - **Full CRUDL** for emails and notes - create, read, update, delete, list.
 - **Search & Filter** emails and notes.
+- **Send** emails.
+- Supports **unread emails**.
 
 ## Authors
 - [@etigame](https://github.com/etigame)
